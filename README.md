@@ -1,1 +1,1 @@
-# UI-ozon
+# UI-wildberries
