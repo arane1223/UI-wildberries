@@ -9,5 +9,7 @@ public class Pages {
             searchInput = $("#searchInput"),
             navigationMenuBurger = $(".nav-element__burger"),
             autocompleteContent = $(".autocomplete__content"),
-            firstHeading = $("h1");
+            firstHeading = $("h1"),
+            searchByImage = $("#searchByImageFormAbNew"),
+            clearSearchValueButton = $(".search-catalog__btn-wrap");
 }

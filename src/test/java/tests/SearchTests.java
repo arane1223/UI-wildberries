@@ -18,7 +18,7 @@ public class SearchTests extends TestBase {
     }
 
     @Test
-    @DisplayName("При нажатии  один раз на строку поиска, всплывающее окно не появится")
+    @DisplayName("При нажатии один раз на строку поиска, всплывающее окно не появится")
     void whenClickOnSearchInputThenAutocompleteContentShouldNotBeVisible() {
         mainPage.openMainPage()
                 .clickOnSearchInput()
@@ -26,7 +26,8 @@ public class SearchTests extends TestBase {
     }
 
     @Test
-    void test() {
+    @DisplayName("При вводе в поиск получается аналогичный результат в строке поиска в каталоге и заголовке")
+    void whenSetValueInSearchInputThenGetSameResult() {
         String text = "Ввод в строку";
 
         mainPage
@@ -38,7 +39,7 @@ public class SearchTests extends TestBase {
     }
 
     @Test
-    @DisplayName("При вводе в поиске на некорректной раскладке результат меняется на корректную")
+    @DisplayName("При вводе в поиске на английской раскладке результат меняется на русскую")
     void whenSetValueInSearchInputWithIncorrectKeyboardLayoutThenValueSwitchToCorrectLayout() {
         String text = "Yfcnjkmyst buhs";
 
