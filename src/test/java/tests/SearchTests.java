@@ -27,42 +27,39 @@ public class SearchTests extends TestBase {
     @Test
     @DisplayName("При вводе в поиск получается аналогичный результат в строке поиска в каталоге и заголовке")
     void whenSetValueInSearchInputThenGetSameResult() {
-        String getText = "Ввод в строку";
 
         mainPage
                 .openMainPage()
-                .setValueOnSearchInputAndPressEnter(getText);
+                .setValueOnSearchInputAndPressEnter(someText);
 
         catalogPage
-                .checkingSearchInputValue(getText)
-                .checkingFirstHeading(getText);
+                .checkingSearchInputValue(someText)
+                .checkingFirstHeading(someText);
     }
 
     @Test
     @DisplayName("При вводе в поиске на английской раскладке результат меняется на русскую")
     void whenSetValueInSearchInputWithIncorrectKeyboardLayoutThenValueSwitchToCorrectLayout() {
-        String getText = "Yfcnjkmyst buhs";
 
         mainPage
                 .openMainPage()
-                .setValueOnSearchInputAndPressEnter(getText);
+                .setValueOnSearchInputAndPressEnter(incorrectKeyboardText);
 
         catalogPage
-                .checkingSearchInputValue(enToRu(getText))
-                .checkingSearchResultText(getText)
-                .checkingFirstHeading(enToRu(getText));
+                .checkingSearchInputValue(enToRu(incorrectKeyboardText))
+                .checkingSearchResultText(incorrectKeyboardText)
+                .checkingFirstHeading(enToRu(incorrectKeyboardText));
     }
 
     @Test
     @DisplayName("Если ввести значение в поисковую строку и нажать на крестик, строка очистится")
     void whenSetValueInInputSearchAndClickOnClearButtonThenValueWillDeleted() {
-        String getText = "Какой-то текст";
 
         mainPage
                 .openMainPage()
-                .setValueOnSearchInput(getText)
+                .setValueOnSearchInput(someText)
                 .clickOnClearSearchValueButton()
-                .checkingSearchInputValue(getText);
+                .checkingSearchInputValue(someText);
     }
 
     @Test
