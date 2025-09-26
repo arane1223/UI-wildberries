@@ -6,7 +6,7 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class CatalogPage extends Pages{
+public class CatalogPage extends Page {
 
     protected SelenideElement searchResultText = $(".searching-results__text");
 

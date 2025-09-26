@@ -32,7 +32,7 @@ public class SearchTests extends TestBase {
 
         mainPage
                 .openMainPage()
-                .setValueOnSearchInput(text);
+                .setValueOnSearchInputAndPressEnter(text);
 
         catalogPage.checkingSearchInputValue(text)
                 .checkingFirstHeading(text);
@@ -45,11 +45,23 @@ public class SearchTests extends TestBase {
 
         mainPage
                 .openMainPage()
-                .setValueOnSearchInput(text);
+                .setValueOnSearchInputAndPressEnter(text);
 
         catalogPage
                 .checkingSearchInputValue(enToRu(text))
                 .checkingSearchResultText(text)
                 .checkingFirstHeading(enToRu(text));
+    }
+
+    @Test
+    @DisplayName("Если ввести значение в поисковую строку и нажать на крестик, строка очистится")
+    void whenSetValueInInputSearchAndClickOnClearButtonThenValueWillDeleted() {
+        String text = "Какой-то текст";
+
+        mainPage
+                .openMainPage()
+                .setValueOnSearchInput(text)
+                .clickOnClearSearchValueButton()
+                .checkingSearchInputValue(text);
     }
 }

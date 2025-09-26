@@ -2,11 +2,10 @@ package pages;
 
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.open;
 
-public class MainPage extends Pages {
+public class MainPage extends Page {
 
     @Step("Открыть главную страницу")
     public MainPage openMainPage() {
@@ -20,8 +19,14 @@ public class MainPage extends Pages {
         return this;
     }
 
-    @Step("Ввести текст в строку поиска")
+    @Step("Ввести текст в строку поиска и нажать на Enter")
     public MainPage setValueOnSearchInput(String value) {
+        searchInput.setValue(value);
+        return this;
+    }
+
+    @Step("Ввести текст в строку поиска и нажать на Enter")
+    public MainPage setValueOnSearchInputAndPressEnter(String value) {
         searchInput.setValue(value).pressEnter();
         return this;
     }
@@ -36,6 +41,18 @@ public class MainPage extends Pages {
     public MainPage checkAutocompleteContent(String value) {
         autocompleteContent.shouldBe(visible);
         autocompleteContent.shouldHave(text(value));
+        return this;
+    }
+
+    @Step("Нажать на крестик справа в поисковой строке")
+    public MainPage clickOnClearSearchValueButton() {
+        clearSearchValueButton.click();
+        return this;
+    }
+
+    @Step("Проверить значение в строке поиска в каталоге")
+    public MainPage checkingSearchInputValue(String value) {
+        searchInput.shouldNotHave(value(value));
         return this;
     }
 }
