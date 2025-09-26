@@ -10,6 +10,10 @@ public class Page {
             navigationMenuBurger = $(".nav-element__burger"),
             autocompleteContent = $(".autocomplete__content"),
             firstHeading = $("h1"),
-            searchByImage = $("#searchByImageFormAbNew"),
+            searchByImage = $("#searchByImageForm"),
+            popUpFileInput = $("#popUpFileInput"),
+            searchByImagePopUp = $("#uploadImageForSearchByImagePopUpContainer"),
+            popUpWithUploadImage = $(".mo-modal__paper"),
+            popUpWithUploadImageHeader = $("#headerCrop"),
             clearSearchValueButton = $(".search-catalog__btn--clear");
 }

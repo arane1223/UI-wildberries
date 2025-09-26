@@ -20,6 +20,7 @@ public class MainPage extends Page {
                 .click();
         return this;
     }
+
     @Step("Дважды кликнуть на строку поиска")
     public MainPage doubleClickOnSearchInput() {
         searchInput
@@ -72,6 +73,38 @@ public class MainPage extends Page {
     public MainPage checkingSearchInputValue(String value) {
         searchInput
                 .shouldNotHave(value(value));
+        return this;
+    }
+
+    @Step("Кликнуть в поиске на иконку с поиском по картинке")
+    public MainPage clickOnSearchByImage() {
+        searchByImage
+                .shouldBe(visible)
+                .click();
+        return this;
+    }
+
+    @Step("Проверить заголовок в поп-апе для поиска оп картинкам")
+    public MainPage checkingSearchPyImagePopUp(String heading) {
+        searchByImagePopUp.shouldBe(visible).shouldHave(text(heading));
+        return this;
+    }
+
+    @Step("Нажать на кнопку и загрузить картинку")
+    public MainPage setPictureForSearching(String picture) {
+        searchByImage
+                .shouldBe(visible)
+                .click();
+        popUpFileInput.uploadFromClasspath(picture);
+        return this;
+    }
+
+    @Step("Проверить, что открылся поп-ап с выбором области товара")
+    public MainPage checkingPopUpWithUploadImage(String heading) {
+        popUpWithUploadImage
+                .shouldBe(visible);
+        popUpWithUploadImageHeader
+                .shouldHave(text(heading));
         return this;
     }
 }

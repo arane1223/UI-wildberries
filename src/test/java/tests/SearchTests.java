@@ -27,41 +27,61 @@ public class SearchTests extends TestBase {
     @Test
     @DisplayName("При вводе в поиск получается аналогичный результат в строке поиска в каталоге и заголовке")
     void whenSetValueInSearchInputThenGetSameResult() {
-        String text = "Ввод в строку";
+        String getText = "Ввод в строку";
 
         mainPage
                 .openMainPage()
-                .setValueOnSearchInputAndPressEnter(text);
+                .setValueOnSearchInputAndPressEnter(getText);
 
         catalogPage
-                .checkingSearchInputValue(text)
-                .checkingFirstHeading(text);
+                .checkingSearchInputValue(getText)
+                .checkingFirstHeading(getText);
     }
 
     @Test
     @DisplayName("При вводе в поиске на английской раскладке результат меняется на русскую")
     void whenSetValueInSearchInputWithIncorrectKeyboardLayoutThenValueSwitchToCorrectLayout() {
-        String text = "Yfcnjkmyst buhs";
+        String getText = "Yfcnjkmyst buhs";
 
         mainPage
                 .openMainPage()
-                .setValueOnSearchInputAndPressEnter(text);
+                .setValueOnSearchInputAndPressEnter(getText);
 
         catalogPage
-                .checkingSearchInputValue(enToRu(text))
-                .checkingSearchResultText(text)
-                .checkingFirstHeading(enToRu(text));
+                .checkingSearchInputValue(enToRu(getText))
+                .checkingSearchResultText(getText)
+                .checkingFirstHeading(enToRu(getText));
     }
 
     @Test
     @DisplayName("Если ввести значение в поисковую строку и нажать на крестик, строка очистится")
     void whenSetValueInInputSearchAndClickOnClearButtonThenValueWillDeleted() {
-        String text = "Какой-то текст";
+        String getText = "Какой-то текст";
 
         mainPage
                 .openMainPage()
-                .setValueOnSearchInput(text)
+                .setValueOnSearchInput(getText)
                 .clickOnClearSearchValueButton()
-                .checkingSearchInputValue(text);
+                .checkingSearchInputValue(getText);
+    }
+
+    @Test
+    @DisplayName("При нажатии на иконку поиска по картинке, появляется поп-ап с заголовком «Найти товары по фото»")
+    void whenClickSearchByPictureThenPopUpWillOpen() {
+
+        mainPage.openMainPage()
+                .clickOnSearchByImage()
+                .checkingSearchPyImagePopUp("Найти товары по фото");
+    }
+
+    @Test
+    @DisplayName("При загрузке картинки в поиске по картинке открывается поп-ап с выбором области товара")
+    void whenUploadImageForSearchThenOpenPopUpWithProductArea() {
+        String getPicture = "man-in-jacket.jpeg";
+
+        mainPage
+                .openMainPage()
+                .setPictureForSearching(getPicture)
+                .checkingPopUpWithUploadImage("Выберите область с товаром");
     }
 }
