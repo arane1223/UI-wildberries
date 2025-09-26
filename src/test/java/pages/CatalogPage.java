@@ -12,19 +12,25 @@ public class CatalogPage extends Page {
 
     @Step("Проверить значение в строке поиска в каталоге")
     public CatalogPage checkingSearchInputValue(String value) {
-        searchInput.shouldHave(value(value));
+        searchInput
+                .shouldBe(visible)
+                .shouldHave(value(value));
         return this;
     }
 
     @Step("Проверить заголовок страницы в каталоге")
     public CatalogPage checkingFirstHeading(String value) {
-        firstHeading.shouldHave(text(value));
+        firstHeading
+                .shouldBe(visible)
+                .shouldHave(text(value));
         return this;
     }
 
     @Step("Проверить, что при вводе с некорректной раскладки написано в «Показаны результаты по запросу...»")
     public CatalogPage checkingSearchResultText(String value) {
-        searchResultText.shouldHave(text(value));
+        searchResultText
+                .shouldBe(visible)
+                .shouldHave(text(value));
         return this;
     }
 }

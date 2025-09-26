@@ -15,44 +15,63 @@ public class MainPage extends Page {
 
     @Step("Кликнуть на строку поиска")
     public MainPage clickOnSearchInput() {
-        searchInput.click();
+        searchInput
+                .shouldBe(visible)
+                .click();
+        return this;
+    }
+    @Step("Дважды кликнуть на строку поиска")
+    public MainPage doubleClickOnSearchInput() {
+        searchInput
+                .shouldBe(visible)
+                .doubleClick();
         return this;
     }
 
     @Step("Ввести текст в строку поиска и нажать на Enter")
     public MainPage setValueOnSearchInput(String value) {
-        searchInput.setValue(value);
+        searchInput
+                .shouldBe(visible)
+                .setValue(value);
         return this;
     }
 
     @Step("Ввести текст в строку поиска и нажать на Enter")
     public MainPage setValueOnSearchInputAndPressEnter(String value) {
-        searchInput.setValue(value).pressEnter();
+        searchInput
+                .shouldBe(visible)
+                .setValue(value)
+                .pressEnter();
         return this;
     }
 
     @Step("Проверить, что всплывающее окно не видно")
     public MainPage checkThatAutocompleteContentInvisible() {
-        autocompleteContent.shouldNotBe(visible);
+        autocompleteContent
+                .shouldNotBe(visible);
         return this;
     }
 
     @Step("Проверить строку в сплывающем списке поиска")
     public MainPage checkAutocompleteContent(String value) {
-        autocompleteContent.shouldBe(visible);
-        autocompleteContent.shouldHave(text(value));
+        autocompleteContent
+                .shouldBe(visible)
+                .shouldHave(text(value));
         return this;
     }
 
     @Step("Нажать на крестик справа в поисковой строке")
     public MainPage clickOnClearSearchValueButton() {
-        clearSearchValueButton.click();
+        clearSearchValueButton
+                .shouldBe(visible)
+                .click();
         return this;
     }
 
     @Step("Проверить значение в строке поиска в каталоге")
     public MainPage checkingSearchInputValue(String value) {
-        searchInput.shouldNotHave(value(value));
+        searchInput
+                .shouldNotHave(value(value));
         return this;
     }
 }

@@ -12,8 +12,7 @@ public class SearchTests extends TestBase {
     @DisplayName("При нажатии дважды на строку поиска, всплывает окно, в окне есть область «Часто ищут»")
     void whenClickOnSearchInputTwiceThenAutocompleteContentShouldBeVisible() {
         mainPage.openMainPage()
-                .clickOnSearchInput()
-                .clickOnSearchInput()
+                .doubleClickOnSearchInput()
                 .checkAutocompleteContent("Часто ищут");
     }
 
@@ -34,7 +33,8 @@ public class SearchTests extends TestBase {
                 .openMainPage()
                 .setValueOnSearchInputAndPressEnter(text);
 
-        catalogPage.checkingSearchInputValue(text)
+        catalogPage
+                .checkingSearchInputValue(text)
                 .checkingFirstHeading(text);
     }
 
