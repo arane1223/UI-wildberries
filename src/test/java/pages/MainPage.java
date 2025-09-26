@@ -86,7 +86,9 @@ public class MainPage extends Page {
 
     @Step("Проверить заголовок в поп-апе для поиска оп картинкам")
     public MainPage checkingSearchPyImagePopUp(String heading) {
-        searchByImagePopUp.shouldBe(visible).shouldHave(text(heading));
+        searchByImagePopUp
+                .shouldBe(visible)
+                .shouldHave(text(heading));
         return this;
     }
 

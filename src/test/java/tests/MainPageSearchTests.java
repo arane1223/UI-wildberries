@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import static utils.KeyboardSwitch.enToRu;
 
-@DisplayName("Тесты на строку поиска")
-public class SearchTests extends TestBase {
+@DisplayName("Тесты на строку поиска на главной странице")
+public class MainPageSearchTests extends TestBase {
 
     @Test
     @DisplayName("При нажатии дважды на строку поиска, всплывает окно, в окне есть область «Часто ищут»")
@@ -74,11 +74,10 @@ public class SearchTests extends TestBase {
     @Test
     @DisplayName("При загрузке картинки в поиске по картинке открывается поп-ап с выбором области товара")
     void whenUploadImageForSearchThenOpenPopUpWithProductArea() {
-        String getPicture = "man-in-jacket.jpeg";
 
         mainPage
                 .openMainPage()
-                .setPictureForSearching(getPicture)
+                .setPictureForSearching(pictureForDownload)
                 .checkingPopUpWithUploadImage("Выберите область с товаром");
     }
 }

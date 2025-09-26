@@ -16,7 +16,8 @@ public class TestBase {
 
     String
             incorrectKeyboardText = getIncorrectEnglishKeyboardText(),
-            someText = getSomeText();
+            someText = getSomeText(),
+            pictureForDownload = getPicture();
 
     @BeforeAll
     static void setUp() {

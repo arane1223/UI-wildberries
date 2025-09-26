@@ -6,8 +6,7 @@ import java.util.Locale;
 
 public class RandomData {
 
-    public static Faker faker = new Faker();
-    public static Faker fakerRu = new Faker(new Locale("ru"));
+    public static Faker faker = new Faker(new Locale("ru"));
 
     public static String getIncorrectEnglishKeyboardText() {
         return faker.options().option(
@@ -37,5 +36,15 @@ public class RandomData {
 
     public static String getSomeText() {
         return faker.funnyName().name();
+    }
+
+    public static String getPicture() {
+        return faker.options().option(
+                "man-in-jacket.jpeg",
+                "shoes.jpg",
+                "board-game.jpg",
+                "macbook.jpeg",
+                "jewelry.jpg"
+        );
     }
 }
