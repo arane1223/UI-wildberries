@@ -69,10 +69,10 @@ public class MainPage extends Page {
         return this;
     }
 
-    @Step("Проверить значение в строке поиска в каталоге")
-    public MainPage checkingSearchInputValue(String value) {
+    @Step("Проверить, что строка поиска пустая")
+    public MainPage checkingSearchInputEmpty() {
         searchInput
-                .shouldNotHave(value(value));
+                .shouldBe(empty);
         return this;
     }
 
@@ -81,6 +81,15 @@ public class MainPage extends Page {
         searchByImage
                 .shouldBe(visible)
                 .click();
+        return this;
+    }
+
+    @Step("Проверить, что открылся поп-ап с выбором области товара по картинке")
+    public MainPage checkingPopUpWithUploadImage(String heading) {
+        popUpWithUploadImage
+                .shouldBe(visible);
+        popUpWithUploadImageHeader
+                .shouldHave(text(heading));
         return this;
     }
 
@@ -101,12 +110,11 @@ public class MainPage extends Page {
         return this;
     }
 
-    @Step("Проверить, что открылся поп-ап с выбором области товара")
-    public MainPage checkingPopUpWithUploadImage(String heading) {
-        popUpWithUploadImage
-                .shouldBe(visible);
-        popUpWithUploadImageHeader
-                .shouldHave(text(heading));
+    @Step("Кликнуть на кнопку «Бургер»")
+    public Page clickOnNavigationMenuBurger() {
+        navigationMenuBurger
+                .shouldBe(visible)
+                .click();
         return this;
     }
 }

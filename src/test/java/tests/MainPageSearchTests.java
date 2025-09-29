@@ -59,7 +59,7 @@ public class MainPageSearchTests extends TestBase {
                 .openMainPage()
                 .setValueOnSearchInput(someText)
                 .clickOnClearSearchValueButton()
-                .checkingSearchInputValue(someText);
+                .checkingSearchInputEmpty();
     }
 
     @Test

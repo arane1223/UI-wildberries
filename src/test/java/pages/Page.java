@@ -16,4 +16,5 @@ public class Page {
             popUpWithUploadImage = $(".mo-modal__paper"),
             popUpWithUploadImageHeader = $("#headerCrop"),
             clearSearchValueButton = $(".search-catalog__btn--clear");
+
 }
